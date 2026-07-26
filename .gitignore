@@ -20,3 +20,8 @@ temp_audio/
 *.log
 question_1/logs/*.tmp
 .env
+
+# 运行时趋势数据
+question_1/data/raw_responses/
+question_1/data/raw_trends.csv
+question_1/data/trends.csv
