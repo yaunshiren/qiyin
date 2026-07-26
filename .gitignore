@@ -1,0 +1,21 @@
+.venv/
+venv/
+.conda-env/
+.conda-envs/
+.conda-pkgs/
+.tmp/
+**/__pycache__/
+.pytest_cache/
+*.pyc
+.env
+
+# 大型临时音频文件
+temp_audio/
+*.tmp.wav
+*.tmp.mp3
+*.temp.wav
+*.temp.mp3
+
+# 临时日志文件
+*.log
+question_1/logs/*.tmp
