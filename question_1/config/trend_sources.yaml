@@ -1,0 +1,6 @@
+provider: google_trends_rss
+enabled: true
+geo: US
+timeout_seconds: 20
+max_items: 20
+rss_url_template: "https://trends.google.com/trending/rss?geo={geo}"

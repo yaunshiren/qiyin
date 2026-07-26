@@ -19,3 +19,4 @@ temp_audio/
 # 临时日志文件
 *.log
 question_1/logs/*.tmp
+.env

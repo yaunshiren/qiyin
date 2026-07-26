@@ -9,11 +9,24 @@
 - Prompt 模板保存在 YAML 文件中，不写死在 Python 代码中。
 - 详细任务元数据保存在 JSON 中。
 - 模拟数据必须使用固定随机种子，保证结果可复现。
-- 默认流程不得依赖网络或真实商业 API。
-- 不要实现平台爬虫。
+- 趋势数据必须来自真实网络源，原型优先使用 Google Trends Trending Now RSS。
+- 所有网络源、地址、地区、超时和数量限制必须通过配置管理。
+- 不要进行网页自动化、浏览器爬虫或平台页面抓取。
+- 网络失败时不得伪造成功数据，允许使用项目内已保存的原始响应复现后续流程。
+- DeepSeek 仅用于后续创意文本、歌词、歌词评审和歌曲版本创意，本阶段不实现调用。
+- SongProject 是歌曲创意方案，LyricBrief 是其内部歌词简报，二者都不是 LyricsTask。
+- Python 负责 JSON 校验、稳定 ID、安全路径、状态、重试、任务清单和确定性评分。
+- 只有最终 `LyricsReview.decision=accepted` 才能创建 SongTask。
+- 自动歌词修改最多一次；第二次评估仍为 revise 时必须按 rejected 处理。
+- DeepSeek 的 LyricsReview 不得描述为专业作词人、真实听众或市场评价。
+- 真实 DeepSeek 歌词结果必须设置 `LyricsResult.is_simulated=false`。
+- MockMusicResult 必须设置 `is_simulated=true`，且 `audio_path` 为空。
+- 所有 API Key 必须通过环境变量提供，不得写入代码、配置或提交内容。
+- 音乐生成阶段只模拟结构化返回结果，不创建 WAV、MP3 或其他虚假音频。
 - 不要把模拟音乐质量分描述为真实听感结果。
 - 不要添加数据库、Web 框架或前端项目。
 - 公共函数添加类型标注和简要 docstring。
+- 所有代码注释和 docstring 使用中文。
 - 程序出错时应输出清晰的错误信息。
 - 修改代码后必须运行相关测试和实际 CLI 命令。
 - README 中不得声称未实际验证的命令可以运行。
